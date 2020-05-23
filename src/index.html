@@ -12,10 +12,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css"
@@ -25,49 +24,46 @@
     <main class="flex-shrink-0">
       <div class="container">
         <div class="row">
-          <div class="col-md-5">
-            <h2>Ultimate Guitar (input)</h2>
-            <textarea id="ultimate" class="form-control">
-[Verse]
-Am               G
-Alas my love, you do me wrong
-F                 E7
-to cast me off so discourteously,
-Am                   G
-for I have loved you for so long,
-F          E7      Am
-delighting in your company.
+          <div class="col-md-6">
+            <h2>Input</h2>
 
-[Chorus]
-C                G
-Greensleeves was all my joy,
-F               E7
-Greensleeves was my delight,
-C                   G
-Greensleeves was my heart of gold,
-    F          E7   Am
-and who but my lady Greensleeves.
-        </textarea
-            >
+            <p class="small form-inline">
+              <label class="mr-2" for="input-format">Format:</label>
+              <select class="form-control form-control-sm" id="input-format">
+                <option value="chordpro" selected="selected">ChordPro</option>
+                <option value="chordsheet">Chord Sheet</option>
+                <option value="ultimate">Ultimate Guitar</option>
+              </select>
+            </p>
+
+            <p>
+              <textarea id="input" class="form-control" rows="10"></textarea>
+            </p>
+
+            <p class="form-inline">
+              <span class="custom-control custom-switch mr-2">
+                <input type="checkbox" id="toggle" class="custom-control-input" checked>
+                <label class="custom-control-label" for="toggle">
+                  when typing
+                </label>
+              </span>
+              <button id="convert" type="button" class="btn btn-primary btn-sm">
+                Convert
+              </button>
+            </p>
           </div>
-          <div class="col-md-2 vertical-center">
-            <button id="convert" type="button" class="btn btn-primary w-100">
-              Convert
-            </button>
-            <hr />
-            <label class="switch">
-              <input type="checkbox" id="toggle" checked="true" />
-              <span class="slider round" />
-            </label>
-            when typing
-            <select class="form-control" id="format">
-              <option value="chordpro" selected="selected">ChordPro</option>
-              <option value="latex">Latex</option>
-            </select>
-          </div>
-          <div class="col-md-5">
-            <h2>ChordPro (output)</h2>
-            <textarea id="chordpro" class="form-control"></textarea>
+          <div class="col-md-6">
+            <h2>Output</h2>
+            <p class="small form-inline">
+              <label class="mr-2" for="output-format">Format:</label>
+              <select class="form-control form-control-sm" id="output-format">
+                <option value="html" selected="selected">HTML</option>
+                <option value="chordpro">ChordPro</option>
+                <option value="latex">Latex</option>
+              </select>
+            </p>
+            <textarea id="output-source" class="form-control" rows="10"></textarea>
+            <div id="output-rendered"></div>
           </div>
         </div>
       </div>
