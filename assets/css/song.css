@@ -1,0 +1,9 @@
+@import "bootstrap/dist/css/bootstrap-reboot.min.css";
+
+.comment {
+  font-weight: bold;
+  font-style: italic;
+  float: left;
+  clear: left;
+  width: 200px;
+}

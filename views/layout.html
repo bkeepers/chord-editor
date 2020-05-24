@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <block name="title">
+      <title>Title of Your Site</title>
+    </block>
+    <link rel="stylesheet" href="css/index.css">
+  </head>
+  <body class="d-flex flex-column h-100">
+    <main id="{{ pageId }}" class="container-fluid flex-grow-1">
+      <block name="content"></block>
+    </main>
+
+    <footer class="footer mt-auto">
+      <div class="container-fluid text-muted">
+        <div class="my-3">©2020 Brandon Keepers</div>
+      </div>
+    </footer>
+
+    <block name="javascript">
+      <script src="js/main.js" defer></script>
+    </block>
+  </body>
+</html>
