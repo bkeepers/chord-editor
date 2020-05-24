@@ -7,7 +7,7 @@ const parsers = {
 }
 
 const formatters = {
-  html: new ChordSheetJS.HtmlTableFormatter(),
+  html: new ChordSheetJS.HtmlDivFormatter(),
   chordpro: new ChordSheetJS.ChordProFormatter(),
   chordsheet: new ChordSheetJS.TextFormatter(),
   latex: new ChordSheetJS.LatexFormatter()
@@ -18,7 +18,6 @@ function convert() {
   const inputFormatEl = document.getElementById("input-format");
   const inputFormat = inputFormatEl.options[inputFormatEl.selectedIndex].value;
 
-  console.log({inputFormat})
   const parsed = parsers[inputFormat].parse(input);
 
   const outputFormatEl = document.getElementById("output-format");
@@ -51,4 +50,4 @@ document.getElementById("toggle").addEventListener("change", setToggle);
 document.getElementById("input").addEventListener("keyup", convertIfToggled);
 document.getElementById("input-format").addEventListener("change", convert);
 document.getElementById("output-format").addEventListener("change", convert);
-convert();
+document.addEventListener("DOMContentLoaded", convert);
