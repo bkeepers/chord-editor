@@ -15,102 +15,70 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
       integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
       crossorigin="anonymous">
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css"
-    />
   </head>
   <body class="d-flex flex-column h-100">
-    <main class="flex-shrink-0">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <h2>Input</h2>
+    <main class="container-fluid flex-grow-1">
+      <div class="row h-100">
+        <div class="col d-flex flex-column">
+          <div class="row align-items-center my-2">
+            <h4 class="col">Input</h4>
 
-            <p class="small form-inline">
+            <div class="col small form-inline justify-content-end">
               <label class="mr-2" for="input-format">Format:</label>
               <select class="form-control form-control-sm" id="input-format">
                 <option value="chordpro" selected="selected">ChordPro</option>
                 <option value="chordsheet">Chord Sheet</option>
                 <option value="ultimate">Ultimate Guitar</option>
               </select>
-            </p>
-
-            <p>
-              <textarea id="input" class="form-control" rows="10"></textarea>
-            </p>
-
-            <p class="form-inline">
-              <span class="custom-control custom-switch mr-2">
-                <input type="checkbox" id="toggle" class="custom-control-input" checked>
-                <label class="custom-control-label" for="toggle">
-                  when typing
-                </label>
-              </span>
-              <button id="convert" type="button" class="btn btn-primary btn-sm">
-                Convert
-              </button>
-            </p>
+            </div>
           </div>
-          <div class="col-md-6">
-            <h2>Output</h2>
-            <p class="small form-inline">
+
+          <div class="flex-grow-1">
+            <textarea id="input" class="form-control h-100" rows="10"></textarea>
+          </div>
+
+          <p class="form-inline my-2">
+            <span class="custom-control custom-switch mr-2">
+              <input type="checkbox" id="toggle" class="custom-control-input" checked>
+              <label class="custom-control-label" for="toggle">
+                when typing
+              </label>
+            </span>
+            <button id="convert" type="button" class="btn btn-primary btn-sm">
+              Convert
+            </button>
+          </p>
+        </div>
+        <div class="col d-flex flex-column">
+          <div class="row align-items-center my-2">
+            <h4 class="col">Output</h4>
+            <div class="col small form-inline justify-content-end">
               <label class="mr-2" for="output-format">Format:</label>
               <select class="form-control form-control-sm" id="output-format">
                 <option value="html" selected="selected">HTML</option>
                 <option value="chordpro">ChordPro</option>
                 <option value="latex">Latex</option>
               </select>
-            </p>
-            <textarea id="output-source" class="form-control" rows="10"></textarea>
-            <div id="output-rendered"></div>
+            </div>
+          </div>
+          <div class="flex-grow-1 mb-3">
+            <textarea id="output-source" class="form-control h-100" rows="10"></textarea>
+            <div class="h-100 p-3" id="output-rendered"></div>
           </div>
         </div>
       </div>
     </main>
 
-    <footer class="footer mt-auto py-3">
+    <footer class="footer mt-auto">
       <div class="container text-muted">
         <div class="row">
           <div class="col-md-12">
             <p>© 2019 Fredrik Teschke</p>
-            <p>
-              Convert
-              <a href="https://www.ultimate-guitar.com">Ultimate Guitar</a>
-              chordsheets to
-              <a
-                href="https://www.chordpro.org/chordpro/ChordPro-File-Format-Specification.html"
-                >ChordPro</a
-              >
-              or Latex
-              <a href="https://ctan.org/pkg/songs">Latex songs</a> notation.
-              Ultimate Guitar uses a two line format, with the chords above the
-              lyrics and has metadata annotations such as [Verse 1] and [Chorus]
-              in square brackets. ChordPro on the other hand has inline chords
-              in square brackets and metadata in curly brackets, such as
-              {start_of_chorus}. Latex songs uses a similar notation, for
-              example \beginchorus.<br />
-              Based on
-              <a href="https://github.com/martijnversluis/ChordSheetJS"
-                >ChordSheetJS</a
-              >. Uses a
-              <a href="https://github.com/ftes/ChordSheetJS/tree/release"
-                >fork</a
-              >
-              to support Ultimate Guitar and Latex notation.
-            </p>
           </div>
         </div>
       </div>
     </footer>
 
-    <a
-      class="github-fork-ribbon right-bottom fixed"
-      href="https://github.com/ftes/ultimate-to-chordpro"
-      data-ribbon="Fork me on GitHub"
-      title="Fork me on GitHub"
-      >Fork me on GitHub</a
-    >
     <script src="main.js"></script>
   </body>
 </html>
