@@ -16,7 +16,10 @@ const formatters = {
 function convert() {
   const input = document.getElementById("input").value;
   const inputFormatEl = document.getElementById("input-format");
-  const inputFormat = inputFormatEl.options[inputFormatEl.selectedIndex].value;
+  let inputFormat = inputFormatEl.options[inputFormatEl.selectedIndex].value;
+  if(!inputFormat) {
+    inputFormat = autodetect(input);
+  }
 
   const parsed = parsers[inputFormat].parse(input);
 
@@ -32,6 +35,18 @@ function convert() {
   } else {
     source.hidden = false
     source.value = output;
+  }
+}
+
+const HEURISTICS = {
+  ultimate: /\[(Verse.*|Chorus)\]/i,
+  chordpro: /\[[A-G].*\]/i,
+  chordsheet: /.*/
+}
+
+function autodetect(input) {
+  for(const name in HEURISTICS) {
+    if(input.match(HEURISTICS[name])) return name;
   }
 }
 
