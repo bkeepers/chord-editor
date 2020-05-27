@@ -1,23 +1,30 @@
-<extends src='layout.html'>
-  <block name='content'>
-    <div class="row h-100">
-      <form class="col d-flex flex-column">
-        <div class="row align-items-center my-2">
-          <h4 class="col">Input</h4>
+<!DOCTYPE html>
+<html class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body class="h-100">
+    <main class="container-fluid h-100">
+      <div class="row h-100">
+        <form class="col d-flex flex-column">
+          <div class="row align-items-center my-2">
+            <h4 class="col">Input</h4>
 
-          <div class="col small form-inline justify-content-end">
-            <label class="mr-2" for="input-format">Format:</label>
-            <select class="form-control form-control-sm" id="input-format">
-              <option value="" selected="selected">Autodetect</option>
-              <option value="chordpro">ChordPro</option>
-              <option value="chordsheet">Chord Sheet</option>
-              <option value="ultimate">Ultimate Guitar</option>
-            </select>
+            <div class="col small form-inline justify-content-end">
+              <label class="mr-2" for="input-format">Format:</label>
+              <select class="form-control form-control-sm" id="input-format">
+                <option value="" selected="selected">Autodetect</option>
+                <option value="chordpro">ChordPro</option>
+                <option value="chordsheet">Chord Sheet</option>
+                <option value="ultimate">Ultimate Guitar</option>
+              </select>
+            </div>
           </div>
-        </div>
 
-        <div class="flex-grow-1">
-          <textarea id="input" class="form-control h-100 text-monospace" rows="10">{t:Somewhere Over The Rainbow}
+          <div class="flex-grow-1">
+            <textarea id="input" class="form-control h-100 text-monospace" rows="10">{t:Somewhere Over The Rainbow}
 {artist:Israël Kamakawiwo'ole}
 {album:Facing Future}
 
@@ -58,39 +65,40 @@ Oh [C]somewhere [Em]over the rainbow, [F]way up [C]high
 {c: Outro}
 [C]ooo-ooo  [Em]ooo-ooo  [F]ooo-ooo  [C]ooo-ooo
 [F]ooo-ooo  [E7]ooo-ooo  [Am]ooo-a-eh[F]-a-a-a-a-a-a
-          </textarea>
-        </div>
+            </textarea>
+          </div>
 
-        <p class="form-inline my-2">
-          <span class="custom-control custom-switch mr-2">
-            <input type="checkbox" id="toggle" class="custom-control-input" checked>
-            <label class="custom-control-label" for="toggle">
-              when typing
-            </label>
-          </span>
-          <button id="convert" type="button" class="btn btn-primary btn-sm">
-            Convert
-          </button>
-        </p>
-      </form>
-      <div class="col d-flex flex-column">
-        <div class="row align-items-center my-2">
-          <h4 class="col">Output</h4>
-          <div class="col small form-inline justify-content-end">
-            <label class="mr-2" for="output-format">Format:</label>
-            <select class="form-control form-control-sm" id="output-format">
-              <option value="html" selected="selected">HTML</option>
-              <option value="chordpro">ChordPro</option>
-              <option value="chordsheet">Chord Sheet</option>
-              <option value="latex">Latex</option>
-            </select>
+          <p class="form-inline my-2">
+            <span class="custom-control custom-switch mr-2">
+              <input type="checkbox" id="toggle" class="custom-control-input" checked>
+              <label class="custom-control-label" for="toggle">
+                when typing
+              </label>
+            </span>
+            <button id="convert" type="button" class="btn btn-primary btn-sm">
+              Convert
+            </button>
+          </p>
+        </form>
+        <div class="col d-flex flex-column">
+          <div class="row align-items-center my-2">
+            <h4 class="col">Output</h4>
+            <div class="col small form-inline justify-content-end">
+              <label class="mr-2" for="output-format">Format:</label>
+              <select class="form-control form-control-sm" id="output-format">
+                <option value="html" selected="selected">HTML</option>
+                <option value="chordpro">ChordPro</option>
+                <option value="chordsheet">Chord Sheet</option>
+                <option value="latex">Latex</option>
+              </select>
+            </div>
+          </div>
+          <div class="flex-grow-1 mb-3">
+            <textarea hidden id="output-source" class="text-monospace form-control h-100" rows="10"></textarea>
+            <iframe hidden class="w-100 h-100" id="output-rendered" src="song.html" frameborder="0"></iframe>
           </div>
         </div>
-        <div class="flex-grow-1 mb-3">
-          <textarea hidden id="output-source" class="text-monospace form-control h-100" rows="10"></textarea>
-          <iframe hidden class="w-100 h-100" id="output-rendered" src="song.html" frameborder="0"></iframe>
-        </div>
       </div>
-    </div>
-  </block>
-</extends>
+    </main>
+  </body>
+</html>

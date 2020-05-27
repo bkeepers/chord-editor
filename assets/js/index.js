@@ -50,19 +50,17 @@ function autodetect(input) {
   }
 }
 
-let toggleState = document.getElementById("toggle").checked;
-function setToggle(e) {
-  toggleState = e.target.checked;
-}
 function convertIfToggled() {
-  if (toggleState) {
+  if (document.getElementById("toggle").checked) {
     convert();
   }
 }
 
-document.getElementById("convert").addEventListener("click", convert);
-document.getElementById("toggle").addEventListener("change", setToggle);
-document.getElementById("input").addEventListener("keyup", convertIfToggled);
-document.getElementById("input-format").addEventListener("change", convert);
-document.getElementById("output-format").addEventListener("change", convert);
-document.addEventListener("DOMContentLoaded", convert);
+document.addEventListener("DOMContentLoaded", function() {
+  document.getElementById("convert").addEventListener("click", convert);
+  document.getElementById("toggle").addEventListener("change", convertIfToggled);
+  document.getElementById("input").addEventListener("keyup", convertIfToggled);
+  document.getElementById("input-format").addEventListener("change", convert);
+  document.getElementById("output-format").addEventListener("change", convert);
+  document.getElementById("output-rendered").addEventListener("load", convert);
+});
